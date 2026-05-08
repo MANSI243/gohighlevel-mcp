@@ -37,6 +37,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GHLMCPServer = void 0;
 const index_js_1 = require("@modelcontextprotocol/sdk/server/index.js");
 const stdio_js_1 = require("@modelcontextprotocol/sdk/server/stdio.js");
 const types_js_1 = require("@modelcontextprotocol/sdk/types.js");
@@ -607,6 +608,10 @@ class GHLMCPServer {
             throw new Error(`Failed to connect to GHL API: ${error}`);
         }
     }
+    async startHTTP(transport) {
+        await this.testGHLConnection();
+        await this.server.connect(transport);
+    }
     /**
      * Initialize and start the MCP server
      */
@@ -778,6 +783,7 @@ class GHLMCPServer {
         }
     }
 }
+exports.GHLMCPServer = GHLMCPServer;
 /**
  * Handle graceful shutdown
  */

@@ -41,7 +41,7 @@ dotenv.config();
 /**
  * Main MCP Server class
  */
-class GHLMCPServer {
+export class GHLMCPServer {
   private server: Server;
   private ghlClient: GHLApiClient;
   private contactTools: ContactTools;
@@ -615,6 +615,11 @@ class GHLMCPServer {
       console.error('[GHL MCP] ❌ GHL API connection failed:', error);
       throw new Error(`Failed to connect to GHL API: ${error}`);
     }
+  }
+
+  async startHTTP(transport: any): Promise<void> {
+    await this.testGHLConnection();
+    await this.server.connect(transport);
   }
 
   /**
