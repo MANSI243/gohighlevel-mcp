@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SurveyTools = void 0;
-exports.isSurveyTool = isSurveyTool;
+exports.isSurveyTool = exports.SurveyTools = void 0;
 class SurveyTools {
     apiClient;
     constructor(apiClient) {
@@ -182,3 +181,4 @@ function isSurveyTool(toolName) {
     ];
     return surveyToolNames.includes(toolName);
 }
+exports.isSurveyTool = isSurveyTool;

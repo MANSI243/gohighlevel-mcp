@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowTools = void 0;
-exports.isWorkflowTool = isWorkflowTool;
+exports.isWorkflowTool = exports.WorkflowTools = void 0;
 class WorkflowTools {
     apiClient;
     constructor(apiClient) {
@@ -78,3 +77,4 @@ function isWorkflowTool(toolName) {
     ];
     return workflowToolNames.includes(toolName);
 }
+exports.isWorkflowTool = isWorkflowTool;
